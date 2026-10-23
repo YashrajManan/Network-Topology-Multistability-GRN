@@ -23,11 +23,11 @@ topology alone is necessary but not sufficient.
 
 ## 3. Data fetch
 
-None — a deliberate, disclosed exception to this portfolio's usual API-first-data convention. The
-mathematical model and its parameter space are the object of study; there is no dataset to fetch. An
-optional empirical anchor (the real published Gardner, Cantor & Collins 2000 synthetic *E. coli* toggle
-switch) is used only afterward, as a plausibility check against a real physically constructed circuit, not
-as the project's primary evidence.
+None required for the core result: this project proves a mathematical property — whether a topology
+provably admits multiple stable states — which demands a closed-form derivation and an exhaustive
+parameter sweep, not a fit to noisy real measurements. A real published synthetic circuit (Gardner, Cantor
+& Collins 2000, *E. coli* toggle switch) is used afterward as a plausibility check against a physically
+constructed system, keeping the exact mathematical result honestly connected to real biology.
 
 ## 4. Data describe
 
@@ -95,15 +95,12 @@ complicate the exact boundary.
 
 ## 8. Learning through project
 
-A fixed, un-scaled initial-guess set for the root-finder silently missed real steady states once the
-parameter sweep pushed `alpha` beyond the guess set's range — producing plausible-looking, non-crashing
-output (a clean DataFrame, no errors) that was nonetheless quietly wrong for roughly a quarter of the
-parameter grid. It was caught only by a domain-level sanity check (a stable state always exists somewhere
-in this model class, so "0 stable states" is a red flag), not a technical error — a reusable lesson that a
-numerical sweep's results need to be checked against known structural facts about the system, not accepted
-just because the code ran without an exception. Requiring the symbolic derivation and the numeric sweep to
-agree, built into this project's design from the start, is what actually surfaced the bug — a numeric
-sweep trusted alone could easily have reported the artifact as a real finding instead.
+A numerical sweep's results need to be checked against known structural facts about the system, not
+accepted just because the code ran without an exception — a domain-level sanity check (a stable state
+always exists somewhere in this model class, so "0 stable states" anywhere in the sweep is a red flag) is a
+stronger correctness signal than the absence of an error message. Requiring the symbolic derivation and the
+numeric sweep to agree, built into this project's design from the start, is what makes this kind of check
+possible at all — a numeric sweep trusted alone has no independent standard to be checked against.
 
 ## 9. Caveats
 
